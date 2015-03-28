@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+
+	<http use-expressions="true" access-denied-page="/login">
+		<intercept-url pattern="/admin/**"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_USERS')" />
+		<form-login login-page="/login" authentication-failure-url="/loginfailed"
+			default-target-url="/welcome" always-use-default-target="true" />
+
+		<logout logout-success-url="/logout" />
+
+	</http>
+
+	<!-- User service and password encoding configuration -->
+
+	<beans:bean id='bCryptPasswordEncoder'
+		class='org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder' />
+
+
+	<beans:bean id="customizedUserDetailsService"
+		class="com.hnotify.service.CustomizedUserDetailsService">
+	</beans:bean>
+
+	<authentication-manager>
+		<authentication-provider user-service-ref="customizedUserDetailsService">
+			<!-- <password-encoder ref="bCryptPasswordEncoder"> -->
+			<password-encoder hash="plaintext">
+			</password-encoder>
+		</authentication-provider>
+	</authentication-manager>
+
+</beans:beans>

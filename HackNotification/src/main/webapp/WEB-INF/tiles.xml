@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="baseLayout" template="/WEB-INF/jsp/tiles/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/WEB-INF/jsp/tiles/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/tiles/menu.jsp" />
+		<put-attribute name="menu_moder" value="/WEB-INF/jsp/tiles/menu_moder.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/tiles/footer.jsp" />
+	</definition>
+
+	<definition name="layoutNewWindow" template="/WEB-INF/jsp/tiles/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="menu_moder" value="" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="" />
+	</definition>
+	
+	<definition name="checkws" template="/WEB-INF/jsp/checkws/checkws.jsp">
+	</definition>
+	
+	<!--Login -->
+	<definition name="login" template="/WEB-INF/jsp/views/adminusers/login.jsp">
+	</definition>
+	<!-- welcome -->
+	<definition name="welcome" extends="baseLayout">
+		<put-attribute name="title" value="Welcome " />
+		<put-attribute name="body" value="/WEB-INF/jsp/views/adminusers/welcome.jsp" />
+	</definition>
+	
+	<!-- Admin User Section -->
+	<definition name="addUser" extends="baseLayout">
+		<put-attribute name="title" value="Add Admin User" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/views/adminusers/adminUserAdd.jsp" />
+	</definition>
+
+
+	<definition name="adminUserList" extends="baseLayout">
+		<put-attribute name="title" value="Admin User List" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/views/adminusers/adminUserList.jsp" />
+	</definition>
+
+
+	<definition name="editUser" extends="baseLayout">
+		<put-attribute name="title" value="Edit Admin User" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/views/adminusers/adminUserEdit.jsp" />
+	</definition>
+
+
+	<definition name="adminRoleList" extends="baseLayout">
+		<put-attribute name="title" value="Admin Roles List" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/views/adminusers/adminRoleList.jsp" />
+	</definition>
+
+
+	<definition name="changePassword" extends="baseLayout">
+		<put-attribute name="title" value="Change Password" />
+		<put-attribute name="body"
+			value="/WEB-INF/jsp/views/adminusers/adminChangePassword.jsp" />
+	</definition>
+	
+
+	<!--Category -->
+	<definition name="citylist" extends="baseLayout">
+		<put-attribute name="title" value="City List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/views/citylist.jsp" />
+	</definition>
+	<definition name="notifymap" template="/WEB-INF/jsp/views/notifymap.jsp">
+	</definition>
+	
+
+	
+</tiles-definitions>
