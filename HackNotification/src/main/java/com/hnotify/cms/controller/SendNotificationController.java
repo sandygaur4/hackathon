@@ -76,6 +76,8 @@ public class SendNotificationController {
 		}
 		pushNotification(androidNotify,iosNotify,windowNotify);
 		
+		
+		
 		return "notify";
 
 	}
