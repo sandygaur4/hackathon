@@ -50,7 +50,20 @@ public class SendNotificationController {
 	}
 	
 	@RequestMapping(value="/admin/notify", method = RequestMethod.POST)
-	public String notify(@RequestParam String latlng,@RequestParam int radius, Map<String, Object> map) {
+	public String notify(@RequestParam final String latlng,@RequestParam final int radius, Map<String, Object> map) {
+		
+		new Thread( new Runnable(){
+			public void run(){
+				pushNotification(latlng,radius);
+			}
+			
+		}).start();
+		
+		return "notify";
+
+	}
+
+	private void pushNotification(String latlng, int radius) {
 		String[] lt = latlng.split(",");
 		LocationVO locationVO = Utilities.getInstance().getGeoLocation(GOOGLE_GEO_API, lt[0], lt[1]);
 		System.out.println("country is::" + locationVO.getCountry());
@@ -74,18 +87,17 @@ public class SendNotificationController {
 				}
 			}
 		}
-		pushNotification(androidNotify,iosNotify,windowNotify);
+		sendingNotification(androidNotify,iosNotify,windowNotify);
 		
 		
-		
-		return "notify";
-
 	}
 
-	private void pushNotification(List<String> androidNotify, List<String> iosNotify, List<String> windowNotify) {
-		// TODO Auto-generated method stub
+	private void sendingNotification(List<String> androidNotify, List<String> iosNotify, List<String> windowNotify) {
+		// TODO respective methods of platform notification will be called.
 		
 	}
+
+	
 
 	
 }
