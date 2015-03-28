@@ -1,16 +1,9 @@
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
-<head> 
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" /> 
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/> 
-    <title>Google Maps Javascript API v3 Example: Add Marker with open infowindow on map click</title> 
+
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script> 
 <script type="text/javascript" src="scripts/downloadxml.js"></script>
-<style type="text/css">
-html, body { height: 100%; } 
-</style>
+
 <script type="text/javascript"> 
      // global "map" variable
       var map1 = null;
@@ -85,8 +78,6 @@ google.maps.event.addListener(map1, 'click', function() {
 }
 google.maps.event.addDomListener(window, 'load', initialize);
 </script> 
-  </head> 
-<body style="margin:0px; padding:0px;"> 
  
     <!-- you can use tables or divs for the overall layout --> 
     <table border="1"> 
@@ -114,5 +105,3 @@ google.maps.event.addDomListener(window, 'load', initialize);
       To view Google Maps, enable JavaScript by changing your browser options, and then 
       try again.</p>
     </noscript> 
-  </body> 
-</html> 

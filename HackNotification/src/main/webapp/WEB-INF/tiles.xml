@@ -74,7 +74,9 @@
 		<put-attribute name="title" value="City List" />
 		<put-attribute name="body" value="/WEB-INF/jsp/views/citylist.jsp" />
 	</definition>
-	<definition name="notifymap" template="/WEB-INF/jsp/views/notifymap.jsp">
+	<definition name="notifymap" extends="baseLayout">
+	<put-attribute name="title" value="City List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/views/notifymap.jsp" />
 	</definition>
 	<definition name="notify" extends="baseLayout">
 		<put-attribute name="title" value="City List" />
