@@ -76,6 +76,11 @@
 	</definition>
 	<definition name="notifymap" template="/WEB-INF/jsp/views/notifymap.jsp">
 	</definition>
+	<definition name="notify" extends="baseLayout">
+		<put-attribute name="title" value="City List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/views/notify.jsp" />
+	</definition>
+	
 	
 
 	
