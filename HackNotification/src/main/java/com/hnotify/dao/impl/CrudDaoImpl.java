@@ -7,27 +7,29 @@ import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.hnotify.dao.CrudDao;
 
 
 @Repository
+@Transactional(readOnly=true)
 public class CrudDaoImpl implements CrudDao{
 
 	@Autowired private SessionFactory sessionFactory;
-
+	@Transactional(readOnly=false)
 	public void save(Object obj) {
 		sessionFactory.getCurrentSession().save(obj);		
 	}
-
+	@Transactional(readOnly=false)
 	public void saveOrUpdate(Object obj) {
 		sessionFactory.getCurrentSession().saveOrUpdate(obj);		
 	}
-
+	@Transactional(readOnly=false)
 	public void update(Object obj) {
 		sessionFactory.getCurrentSession().update(obj);		
 	}
-
+	@Transactional(readOnly=false)
 	public void delete(Object obj) {
 		sessionFactory.getCurrentSession().delete(obj);		
 	}
@@ -50,6 +52,7 @@ public class CrudDaoImpl implements CrudDao{
 		return criteria.list();
 	}
 
+	@Transactional(readOnly=false)
 	public void merge(Object obj) {
 		sessionFactory.getCurrentSession().merge(obj);		
 	}
